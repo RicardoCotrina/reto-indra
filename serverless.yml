@@ -1,0 +1,60 @@
+service: aws-lambda-dynamodb-reto
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-west-2
+  iamRoleStatements:
+    - Effect: Allow
+      Action: 
+        - dynamodb:*
+      Resource:
+          - arn:aws:dynamodb:us-west-2:842368770922:table/PlanetTable  
+
+functions:
+  addPlanet:
+    handler: src/addPlanet.addPlanet
+    events:
+      - httpApi:
+          path: /planet
+          method: post 
+  getPlanet:
+    handler: src/getPlanet.getPlanet
+    events:
+      - httpApi:
+          path: /planet/{id}
+          method: get
+  getPlanets:
+    handler: src/getPlanets.getPlanets
+    events:
+      - httpApi:
+          path: /planets
+          method: get
+          
+  updatePlanet:
+    handler: src/updatePlanet.updatePlanet
+    events:
+      - httpApi:
+          path: /planet/{id}
+          method: put
+  deletePlanet:
+    handler: src/deletePlanet.deletePlanet
+    events:
+      - httpApi:
+          path: /planet/{id}
+          method: delete
+
+resources:
+  Resources:
+    PlanetTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: PlanetTable
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH 
