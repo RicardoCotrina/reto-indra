@@ -16,9 +16,9 @@ const deletePlanet = async (event) => {
 
     return {
       status: 200,
-      body: {
-        message: 'Deleted planet successfully'
-      }
+      body: JSON.stringify({
+        message: "Deleted planet successfully",
+      })
     };
   }catch(e){
     console.log('Se detecto un error: ', e);

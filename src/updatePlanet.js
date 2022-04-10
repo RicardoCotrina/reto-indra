@@ -1,12 +1,10 @@
 const AWS = require("aws-sdk");
-const middy = require('@middy/core');
-const jsonBodyParser = require('@middy/http-json-body-parser');
 
 const updatePlanet = async (event) => {
   try{
     const dynamodb = new AWS.DynamoDB.DocumentClient();
     const { id } = event.pathParameters;
-    const { done, name_planet, diameter, climate, population } = event.body;
+    const { done, name_planet, diameter, climate, population } = JSON.parse(event.body);
 
     await dynamodb
       .update({
@@ -36,5 +34,5 @@ const updatePlanet = async (event) => {
 };
 
 module.exports = {
-  updatePlanet: middy(updatePlanet).use(jsonBodyParser),
+  updatePlanet,
 };

@@ -5,9 +5,18 @@ const jsonBodyParser = require('@middy/http-json-body-parser');
 
 const addPlanet = async (event) => {
     const dynamodb = new AWS.DynamoDB.DocumentClient();
-    const { name_planet, diameter, climate, population } = event.body;
     const createdAt = new Date();
     const id = v4();
+    const { name_planet, diameter, climate, population } = event.body;
+    console.log(event.body);
+    if(!name_planet) {
+        return {
+            status: 400,
+            body: JSON.stringify({
+                message: "Object data incomplete",
+            })
+        }
+    }
 
     const newTask = {
         id,
@@ -25,8 +34,8 @@ const addPlanet = async (event) => {
         .promise()
     
         return {
-            statusCode: 200,
-            body: JSON.stringify(newTask),
+            status: 200,
+            body: newTask,
         }
     }catch(e){
         console.log('Se detecto un error al crear el elemento: ', e);
