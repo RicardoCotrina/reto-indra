@@ -7,9 +7,9 @@ Podemos entoncrar un CRUD para poder interactuar a lo largo de la presente API-R
 
 ## Routes:
 - GET → https://dsw0kj2orl.execute-api.us-west-2.amazonaws.com/planets
-- 
+
 - GET → https://dsw0kj2orl.execute-api.us-west-2.amazonaws.com/planet/:id, donde id: Es el identificador del planeta ingresado
--
+
 - POST → https://dsw0kj2orl.execute-api.us-west-2.amazonaws.com/planet, Con esta ruta creamos un nuevo planeta donde el objecto a ingresar debe contener por ejemplo:
 {   
     "name_planet": "Tierra",
