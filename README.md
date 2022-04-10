@@ -32,3 +32,6 @@ Por ejemplo:
 
 - DELETE →  https://dsw0kj2orl.execute-api.us-west-2.amazonaws.com/planet/:id, donde id: Es el identificador del planeta ingresado
 
+## Testing
+Tambien se encontrará una carpeta con las pruebas unitarias realizadas a cada una de las peticiones para poder garantizar la funcionalidad de la API, esta fue realizada con JEST.
+
