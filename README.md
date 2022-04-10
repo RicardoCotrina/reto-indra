@@ -6,7 +6,7 @@ En este prueba se realizó una integración entre los servicios de AWS(Lambda, A
 Podemos entoncrar un CRUD para poder interactuar a lo largo de la presente API-Rest
 
 ## Routes:
-- GET → https://dsw0kj2orl.execute-api.us-west-2.amazonaws.com/planets
+- GET → https://dsw0kj2orl.execute-api.us-west-2.amazonaws.com/planets, para traer todos los planetas con sus respectivas características.
 
 - GET → https://dsw0kj2orl.execute-api.us-west-2.amazonaws.com/planet/:id, donde id: Es el identificador del planeta ingresado
 
