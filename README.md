@@ -22,13 +22,11 @@ Podemos entoncrar un CRUD para poder interactuar a lo largo de la presente API-R
 
 Por ejemplo:
 
-{   
-    "done": true,
+{   "done": true,
     "name_planet": "Tierra",
     "diameter": "1500",
     "climate": "Arido",
-    "population": "0"
-}
+    "population": "0" }
 
 - DELETE →  https://dsw0kj2orl.execute-api.us-west-2.amazonaws.com/planet/:id, donde id: Es el identificador del planeta ingresado
 
